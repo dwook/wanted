@@ -1,6 +1,37 @@
-.list {
+.wrapper {
   margin: 0 auto;
-  padding: 20px 0 80px;
   max-width: 1060px;
   width: 87.72%;
+}
+
+.header {
+  display: flex;
+  margin: 20px 0 10px;
+  padding-bottom: 10px;
+  span {
+    margin-right: 5px;
+  }
+  strong {
+    font-weight: normal;
+    color: #258bf7;
+  }
+  .section-filter {
+    margin-left: auto;
+  }
+  .section-option {
+    button {
+      margin-right: 10px;
+      border-radius: 2px;
+      border: 1px solid #e1e2e3;
+      background: #fff;
+      color: #333;
+      font-size: 13px;
+      font-weight: 400;
+      padding: 9px 15px;
+    }
+  }
+}
+
+.list-card {
+  margin: -10px;
 }

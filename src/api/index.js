@@ -15,3 +15,7 @@ export const getJobList = () => {
 export const getMoreJobList = nextLink => {
   return axios.get(nextLink);
 };
+
+export const getFilters = () => {
+  return axios.get('/api/v4/filters');
+};
