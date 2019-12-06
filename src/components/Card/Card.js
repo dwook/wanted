@@ -12,21 +12,23 @@ function Card({
 }) {
   return (
     <div className="card">
-      <div className="thumbnail">
-        <img src={title_img.thumb} alt={company.name} />
-        <div className="likeButton">{like_count}</div>
-      </div>
-      <div className="body">
-        <div className="position">{position}</div>
-        <div className="details">
-          <div>{company.name}</div>
-          <div className="address">
-            <span>{address.location}</span>
-            <span>{address.country}</span>
-          </div>
-          <div className="reward">채용보상금 {reward.formatted_total}</div>
+      <a href={`https://www.wanted.co.kr/wd/${id}`}>
+        <div className="thumbnail">
+          <img src={title_img.thumb} alt={company.name} />
+          <div className="likeButton">{like_count}</div>
         </div>
-      </div>
+        <div className="body">
+          <div className="position">{position}</div>
+          <div className="details">
+            <div>{company.name}</div>
+            <div className="address">
+              <span>{address.location}</span>
+              <span>{address.country}</span>
+            </div>
+            <div className="reward">채용보상금 {reward.formatted_total}</div>
+          </div>
+        </div>
+      </a>
     </div>
   );
 }
