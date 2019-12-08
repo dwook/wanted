@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> matches snapshot 1`] = `
+<Card
+  address={
+    Object {
+      "country": "한국",
+      "location": "경기",
+    }
+  }
+  company={
+    Object {
+      "id": 765,
+      "industry_name": "IT, 컨텐츠",
+      "name": "마플(MARPPLE)",
+    }
+  }
+  compare_country={true}
+  due_time="2019-12-31"
+  id={18438}
+  is_bookmark={false}
+  is_like={false}
+  like_count={42}
+  logo_img={
+    Object {
+      "origin": "https://static.wanted.co.kr/images/wdes/0_4_94e8e8c5-dfad-455e-bcd9-bf64b31d89cc.jpg",
+      "thumb": "https://static.wanted.co.kr/images/wdes/0_5_94e8e8c5-dfad-455e-bcd9-bf64b31d89cc.jpg",
+    }
+  }
+  position="앱 개발(아이폰/안드로이드)"
+  reward={
+    Object {
+      "formatted_recommendee": "500,000원",
+      "formatted_recommender": "500,000원",
+      "formatted_total": "1,000,000원",
+    }
+  }
+  status="active"
+  title_img={
+    Object {
+      "origin": "https://static.wanted.co.kr/images/company/765/6738_2_0.b211b4b3__1080_790.jpg",
+      "thumb": "https://static.wanted.co.kr/images/company/765/6738_2_0.b211b4b3__400_400.jpg",
+    }
+  }
+>
+  <div
+    className="card"
+  >
+    <a
+      href="https://www.wanted.co.kr/wd/18438"
+    >
+      <div
+        className="thumbnail"
+      >
+        <img
+          alt="마플(MARPPLE)"
+          src="https://static.wanted.co.kr/images/company/765/6738_2_0.b211b4b3__400_400.jpg"
+        />
+        <div
+          className="likeButton"
+        >
+          42
+        </div>
+      </div>
+      <div
+        className="body"
+      >
+        <div
+          className="position"
+        >
+          앱 개발(아이폰/안드로이드)
+        </div>
+        <div
+          className="details"
+        >
+          <div>
+            마플(MARPPLE)
+          </div>
+          <div
+            className="address"
+          >
+            <span>
+              경기
+            </span>
+            <span>
+              한국
+            </span>
+          </div>
+          <div
+            className="reward"
+          >
+            채용보상금 
+            1,000,000원
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</Card>
+`;
