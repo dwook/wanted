@@ -1,68 +1,22 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 실행방법
 
-## Available Scripts
+```
+git clone https://github.com/dwook/wanted.git
+cd wanted
+yarn install
+yarn start
+```
 
-In the project directory, you can run:
+## 요구사항
 
-### `yarn start`
+- [x] /api/v4/jobs에서 받아온 프론트엔드 개발자 리스트 데이터를 화면에 노출시킨다.
+- [x] 다음페이지 값(links.next)이 있을 경우 Infinite Scroll UI를 적용해 해당 아이템을 추가한다.
+- [x] 아이템 클릭 시 원티드 상세 페이지(/wd/:id)로 외부링크 이동한다.
+- [x] /api/v4/filters에서 받아온 정보대로 필터 설정 가능한 UI를 구현한다.
+- [x] 적용 버튼 클릭 시 url과 내부상태값을 업데이트 하고 필터가 적용된 /jobs를 호출한다.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 문제해결
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- package.json에 proxy 설정을 했음에도, CORS문제가 해결되지 않았었습니다. axios 초기설정 시 BASE URL을 'https://www.wanted.co.kr' 설정했던 것이 원인이었습니다. BASE URL 설정을 지우고 path 부터 사용하여 요청을 보내니 해결되었습니다.
+- `/api/v4/jobs` 의 locations 파라미터에 여러 개의 key값이 들어가는 상황에서, 처음 구현했을 때는 `locations[]=busan&locations[]=daegu` 로 요청이 들어갔습니다. 이를 해결하기 위해 qs 라이브러리를 사용하여 쿼리문자열이 `locations=busan&locations=daegu` 형태가 되도록 하였습니다.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
