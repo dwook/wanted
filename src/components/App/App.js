@@ -132,10 +132,12 @@ export default class App extends Component {
               <span>국가</span>
               <strong>{country.display}</strong>
             </Button>
-            <Button onClick={this.toggleModal}>
-              <span>지역</span>
-              <strong>{locations.length && locations[0].display}</strong>
-            </Button>
+            {locations[0] && (
+              <Button onClick={this.toggleModal}>
+                <span>지역</span>
+                <strong>{locations[0].display}</strong>
+              </Button>
+            )}
             <Button onClick={this.toggleModal}>
               <span>경력</span>
               <strong>{years.display}</strong>

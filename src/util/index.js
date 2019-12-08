@@ -8,5 +8,10 @@ export function checkKey(key, list) {
 }
 
 export function extractKey(list) {
-  return list.map(item => item.key);
+  console.log(list);
+  if (list) {
+    return [];
+  } else {
+    return list.map(item => item.key);
+  }
 }

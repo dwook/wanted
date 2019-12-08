@@ -2,6 +2,7 @@ import axios from 'axios';
 import qs from 'qs';
 
 export const getJobList = ({ country, job_sort, years, locations }) => {
+  console.log('요청', country, job_sort, years, locations);
   const arrayParamsAxios = axios.create({
     paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' })
   });
