@@ -8,7 +8,6 @@ export function checkKey(key, list) {
 }
 
 export function extractKey(list) {
-  console.log(list);
   if (list) {
     return [];
   } else {

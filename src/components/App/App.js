@@ -17,6 +17,7 @@ export default class App extends Component {
       country: {
         locations: []
       },
+      initialCountry: {},
       job_sort: '',
       years: '',
       locations: []
@@ -28,6 +29,7 @@ export default class App extends Component {
       const filter = this.props.filters;
       const jobSort = filter.job_sort.find(item => item.selected === true);
       const country = filter.countries.find(item => item.selected === true);
+      const initialCountry = filter.countries.find(item => item.key === 'kr');
       const years = filter.years.find(item => item.selected === true);
       const locations = country.locations.filter(
         item => item.selected === true
@@ -38,6 +40,7 @@ export default class App extends Component {
       this.props.setLocation(locations);
       this.setState({
         country: country,
+        initialCountry: initialCountry,
         job_sort: jobSort,
         years: years,
         locations: locations
@@ -86,10 +89,10 @@ export default class App extends Component {
 
   onResetClick = () => {
     this.setState({
-      country: this.props.country,
+      country: this.state.initialCountry,
       job_sort: this.props.filters.job_sort[0],
       years: this.props.filters.years[0],
-      locations: this.props.locations
+      locations: [this.state.initialCountry.locations[0]]
     });
   };
 

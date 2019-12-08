@@ -66,13 +66,6 @@ const mapDispatchToProps = dispatch => {
         dispatch({
           type: RESET_JOB_LIST
         });
-        console.log(
-          '어플라이',
-          country.key,
-          job_sort.key,
-          years.key,
-          locations
-        );
         await getJobList({
           country: country.key,
           job_sort: job_sort.key,
