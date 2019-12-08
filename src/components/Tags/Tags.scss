@@ -1,0 +1,27 @@
+.form-tags {
+  margin: 10px 0 30px;
+  .title {
+    font-size: 16px;
+    font-weight: 400;
+    color: #999;
+    margin: 0 0 10px;
+  }
+  .options {
+    button {
+      margin-right: 9px;
+      margin-bottom: 9px;
+      border: 1px solid #e1e2e3;
+      background: #f8f8fa;
+      padding: 11px 13px;
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 600;
+      color: #333;
+      &.selected {
+        color: #fff;
+        background: #0092fc;
+        border-color: #0092fc;
+      }
+    }
+  }
+}

@@ -15,7 +15,7 @@ const initialState = {
   jobSort: {},
   country: {},
   years: {},
-  locations: {}
+  locations: []
 };
 
 export function jobListReducers(state = initialState.jobList, action) {
@@ -75,7 +75,7 @@ export function yearsReduers(state = initialState.years, action) {
 export function locationsReducers(state = initialState.locations, action) {
   switch (action.type) {
     case SET_LOCATION:
-      return action.data;
+      return [...action.data];
     default:
       return state;
   }

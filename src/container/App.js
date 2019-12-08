@@ -25,26 +25,34 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     async onLoad() {
-      await getJobList().then(res => {
-        dispatch({
-          type: LOAD_JOB_LIST,
-          data: res.data
+      try {
+        await getJobList().then(res => {
+          dispatch({
+            type: LOAD_JOB_LIST,
+            data: res.data
+          });
         });
-      });
-      await getFilters().then(res => {
-        dispatch({
-          type: LOAD_FILTERS,
-          data: res.data
+        await getFilters().then(res => {
+          dispatch({
+            type: LOAD_FILTERS,
+            data: res.data
+          });
         });
-      });
+      } catch (error) {
+        console.log(error);
+      }
     },
     async onJobListLoadMore(nextLink) {
-      await getMoreJobList(nextLink).then(res => {
-        dispatch({
-          type: LOAD_JOB_LIST,
-          data: res.data
+      try {
+        await getMoreJobList(nextLink).then(res => {
+          dispatch({
+            type: LOAD_JOB_LIST,
+            data: res.data
+          });
         });
-      });
+      } catch (error) {
+        console.log(error);
+      }
     },
     setJobSort(jobSort) {
       dispatch({
