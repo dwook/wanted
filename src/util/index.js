@@ -8,7 +8,7 @@ export function checkKey(key, list) {
 }
 
 export function extractKey(list) {
-  if (list) {
+  if (!list[0]) {
     return [];
   } else {
     return list.map(item => item.key);
