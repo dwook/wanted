@@ -5,6 +5,7 @@
     left: 50%;
     width: 100%;
     max-width: 500px;
+    max-height: calc(100vh - 150px);
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     z-index: 5;
