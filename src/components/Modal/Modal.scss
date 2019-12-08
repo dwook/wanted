@@ -1,0 +1,54 @@
+.modal {
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 500px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    overflow-y: auto;
+    border-radius: 5px;
+    background: #fff;
+    overflow: hidden;
+    .button-close {
+      position: absolute;
+      right: 0;
+      top: 4px;
+      padding: 15px;
+      -webkit-appearance: none;
+    }
+    .header {
+      height: 54px;
+      padding: 16px 20px;
+      position: relative;
+      box-sizing: border-box;
+      border-bottom: 1px solid #eee;
+      color: #333;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      .button-reset {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        padding: 15px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #999;
+      }
+    }
+  }
+  .background {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 4;
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+  }
+}

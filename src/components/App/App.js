@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Card from '../Card/Card';
+import Modal from '../Modal/Modal';
+import Select from '../Select/Select';
 import Button from '../Button/Button';
 import throttle from 'lodash/throttle';
 import './App.scss';
@@ -39,12 +41,14 @@ export default class App extends Component {
   }
 
   render() {
-    const { jobList, jobSort, country, locations, years } = this.props;
+    const { jobList, filters, jobSort, country, locations, years } = this.props;
     return (
       <div className="wrapper">
-        <div className="header">
-          <div className="section-option">
-            <Button>{jobSort.display}</Button>
+        <div className="section-filter">
+          <div className="options">
+            <Button>
+              <strong>{jobSort.display}</strong>
+            </Button>
             <Button>
               <span>국가</span>
               <strong>{country.display}</strong>
@@ -58,7 +62,7 @@ export default class App extends Component {
               <strong>{years.display}</strong>
             </Button>
           </div>
-          <div className="section-filter">
+          <div className="filter">
             <Button>
               <strong>필터</strong>
             </Button>
@@ -70,6 +74,23 @@ export default class App extends Component {
             <Card key={job.id} {...job} />
           ))}
         </div>
+        <Modal>
+          {Object.keys(filters).length && (
+            <div className="modal-filter">
+              <div className="header">
+                <button className="button-reset">초기화</button>
+                필터
+              </div>
+              <div className="body">
+                <Select data={filters.job_sort} title="정렬" />
+                <Select data={filters.years} title="경력" />
+              </div>
+              <div className="footer">
+                <button>적용</button>
+              </div>
+            </div>
+          )}
+        </Modal>
       </div>
     );
   }

@@ -4,7 +4,7 @@
   width: 87.72%;
 }
 
-.header {
+.section-filter {
   display: flex;
   margin: 20px 0 10px;
   padding-bottom: 10px;
@@ -15,10 +15,7 @@
     font-weight: normal;
     color: #258bf7;
   }
-  .section-filter {
-    margin-left: auto;
-  }
-  .section-option {
+  .options {
     button {
       margin-right: 10px;
       border-radius: 2px;
@@ -30,8 +27,31 @@
       padding: 9px 15px;
     }
   }
+  .filter {
+    margin-left: auto;
+  }
 }
 
 .list-card {
   margin: -10px;
+}
+
+.modal-filter {
+  .body {
+    padding: 20px;
+    max-height: calc(100vh - 150px);
+  }
+  .footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    button {
+      width: 100%;
+      background: #238ff4;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 3px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
 }

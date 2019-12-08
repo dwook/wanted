@@ -14,3 +14,8 @@ code {
 a {
   text-decoration: none;
 }
+
+button {
+  border: 0;
+  cursor: pointer;
+}
