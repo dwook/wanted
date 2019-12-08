@@ -2,7 +2,6 @@ import React from 'react';
 import './Select.scss';
 
 function Select({ data, title, selected, type, onChange }) {
-  console.log('셀렉트', selected);
   return (
     <div className="form-select">
       <div className="title">{title}</div>
