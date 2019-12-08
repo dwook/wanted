@@ -73,10 +73,6 @@ const mapDispatchToProps = dispatch => {
           locations: extractKey(locations)
         }).then(res => {
           dispatch({
-            type: LOAD_JOB_LIST,
-            data: res.data
-          });
-          dispatch({
             type: SET_COUNTRY,
             data: country
           });
@@ -91,6 +87,10 @@ const mapDispatchToProps = dispatch => {
           dispatch({
             type: SET_LOCATION,
             data: locations
+          });
+          dispatch({
+            type: LOAD_JOB_LIST,
+            data: res.data
           });
         });
       } catch (error) {
