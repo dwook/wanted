@@ -1,13 +1,18 @@
 import axios from 'axios';
+import qs from 'qs';
 
-export const getJobList = () => {
-  return axios.get('/api/v4/jobs', {
+export const getJobList = ({ country, job_sort, years, locations }) => {
+  const arrayParamsAxios = axios.create({
+    paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' })
+  });
+
+  return arrayParamsAxios.get('/api/v4/jobs', {
     params: {
       tag_type_id: 669,
-      country: 'kr',
-      job_sort: 'job.latest_order',
-      years: -1,
-      locations: 'all'
+      country,
+      job_sort,
+      years,
+      locations
     }
   });
 };

@@ -6,3 +6,7 @@ export function checkKey(key, list) {
   }
   return false;
 }
+
+export function extractKey(list) {
+  return list.map(item => item.key);
+}

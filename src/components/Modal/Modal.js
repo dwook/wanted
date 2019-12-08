@@ -1,14 +1,16 @@
 import React from 'react';
 import '../Modal/Modal.scss';
 
-function Modal({ children }) {
+function Modal({ children, handleModal }) {
   return (
     <div className="modal">
       <div className="content">
         {children}
-        <button className="button-close">X</button>
+        <button className="button-close" onClick={handleModal}>
+          X
+        </button>
       </div>
-      <div className="background"></div>
+      <div className="background" onClick={handleModal}></div>
     </div>
   );
 }

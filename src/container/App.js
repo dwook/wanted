@@ -1,8 +1,10 @@
 import { connect } from 'react-redux';
 import App from '../components/App/App';
 import { getJobList, getMoreJobList, getFilters } from '../api';
+import { extractKey } from '../util';
 import {
   LOAD_JOB_LIST,
+  RESET_JOB_LIST,
   LOAD_FILTERS,
   SET_JOB_SORT,
   SET_COUNTRY,
@@ -26,7 +28,12 @@ const mapDispatchToProps = dispatch => {
   return {
     async onLoad() {
       try {
-        await getJobList().then(res => {
+        await getJobList({
+          country: 'kr',
+          job_sort: 'job.latest_order',
+          years: -1,
+          locations: 'all'
+        }).then(res => {
           dispatch({
             type: LOAD_JOB_LIST,
             data: res.data
@@ -54,16 +61,52 @@ const mapDispatchToProps = dispatch => {
         console.log(error);
       }
     },
-    setJobSort(jobSort) {
-      dispatch({
-        type: SET_JOB_SORT,
-        data: jobSort
-      });
+    async applyFilter({ country, job_sort, years, locations }) {
+      try {
+        dispatch({
+          type: RESET_JOB_LIST
+        });
+        await getJobList({
+          country: country.key,
+          job_sort: job_sort.key,
+          years: years.key,
+          locations: extractKey(locations)
+        }).then(res => {
+          dispatch({
+            type: LOAD_JOB_LIST,
+            data: res.data
+          });
+          dispatch({
+            type: SET_COUNTRY,
+            data: country
+          });
+          dispatch({
+            type: SET_JOB_SORT,
+            data: job_sort
+          });
+          dispatch({
+            type: SET_YEARS,
+            data: years
+          });
+          dispatch({
+            type: SET_LOCATION,
+            data: locations
+          });
+        });
+      } catch (error) {
+        console.log(error);
+      }
     },
     setCountry(country) {
       dispatch({
         type: SET_COUNTRY,
         data: country
+      });
+    },
+    setJobSort(jobSort) {
+      dispatch({
+        type: SET_JOB_SORT,
+        data: jobSort
       });
     },
     setYears(years) {
@@ -72,10 +115,10 @@ const mapDispatchToProps = dispatch => {
         data: years
       });
     },
-    setLocation(location) {
+    setLocation(locations) {
       dispatch({
         type: SET_LOCATION,
-        data: location
+        data: locations
       });
     }
   };

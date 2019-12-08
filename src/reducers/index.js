@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import {
   LOAD_JOB_LIST,
+  RESET_JOB_LIST,
   LOAD_FILTERS,
   SET_JOB_SORT,
   SET_COUNTRY,
@@ -22,6 +23,8 @@ export function jobListReducers(state = initialState.jobList, action) {
   switch (action.type) {
     case LOAD_JOB_LIST:
       return [...state, ...action.data.data];
+    case RESET_JOB_LIST:
+        return [];
     default:
       return state;
   }
@@ -85,8 +88,8 @@ export default combineReducers({
   jobList: jobListReducers,
   nextLink: nextLinkReducers,
   filters: filtersReducers,
-  jobSort: jobSortReducers,
   country: countryReducers,
+  jobSort: jobSortReducers,
   years: yearsReduers,
   locations: locationsReducers
 });
